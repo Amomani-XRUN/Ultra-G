@@ -1,0 +1,926 @@
+<ParkingTimeBookOne>:
+    name:"book"
+    # First pic 1
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"       
+        TextInput:
+            text:"B2:A1:P2"
+            font_name:"Antonio"    
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"      
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press: root.notification()
+                    
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()     
+
+<ParkingTimeBookTwo>:
+    name:"book_2"
+# pic 2
+
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:Parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"        
+        TextInput:
+            text:"B2:A2:P2"
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"      
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press:root.notification()
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()     
+<ParkingTimeBookThree>:
+    name:"book_3"
+# pic 3
+
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"        
+        TextInput:
+            text:"B2:A2:P3"
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"     
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press:root.notification()
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        font_name:"Antonio"    
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()     
+
+<ParkingTimeBookFour>:
+    name:"book_4"
+#pic 4
+
+
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:Parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"       
+        TextInput:
+            text:"B1:A1:P2"
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"       
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            multiline: False
+            font_name:"Antonio"    
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            multiline: False
+            font_name:"Antonio"    
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press: root.notification()
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()
+
+<ParkingTimeBookFive>:
+    name:"book_5"
+#pic 5
+
+
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:Parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"      
+        TextInput:
+            text:"B1:A2:P2"
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"    
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            multiline: False
+            font_name:"Antonio"    
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            multiline: False
+            font_name:"Antonio"    
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press: root.notification()
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()
+
+<ParkingTimeBookSix>:
+    name:"book_6"
+#pic 6
+
+
+    GridLayout:
+        cols: 1
+        size: root.width * 1, root.height * 1
+        row_default_height:50
+        row_force_default: True
+        center: root.width / 2, root.height / 2
+        pos_hint :{"x":0.0,"y":0.0}
+
+        Label:
+            id:Parking_num
+            color:197, 143, 114, 1
+            text:"Parking Number"
+            font_size:15
+            font_name:"Antonio"       
+        TextInput:
+            text:"B1:A2:P3"
+            size_hint:0.4 , 0.25
+            pos_hint :{"x":0.0,"y":0.5}
+            id: parking_num
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+       
+        Label:
+            id:LC/car
+            color:197, 143, 114, 1
+            text:"LC Number"
+            font_size:15
+            font_name:"Antonio"    
+        TextInput:
+            size_hint:0.4, 0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: LC
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            id:EXP/Date
+            color:197, 143, 114, 1
+            text:"LC EXP Date  "
+            font_size:15
+            font_name:"Antonio"    
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.9}
+            id: EXP_Date
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+        Label:
+            id:Car/Number
+            color:197, 143, 114, 1
+            text:"Car Number" 
+            font_size:15
+            font_name:"Antonio"    
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Car
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+
+        Label:
+            id:Email
+            color:197, 143, 114, 1
+            text:"Email Address" 
+            font_size:15
+            font_name:"Antonio"    
+               
+        
+
+
+        TextInput:
+            size_hint:7 ,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            id: Email_Add
+            font_name:"Antonio"    
+            multiline: False
+            focus: True
+            on_text_validate: Image_Input.focus=True
+            padding_x:
+                [self.center[0] - self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached) / 2.0,
+                0] if self.text else [self.center[0], 0]
+            # top, bottom
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            
+        
+        Button:
+            background_color:1.0,0.0,0.0
+            border: (2, 2, 2, 2)
+            size_hint:7,  0.25
+            pos_hint :{"x":0.0,"y":0.11}
+            text:"OK"
+            font_size:15
+            font_name:"Antonio"    
+            color:0.1,0.5,0.6,1
+            on_press:root.notification()
+    Button:
+        background_normal:'pic/back.jpg'
+        background_down:'pic/back.jpg'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.0}
+        size_hint: 0.07,0.09
+        
+        on_release:
+            app.root.current = "view"
+            root.manager.transition.direction = "right" 
+    Button:
+        background_normal:'pic/help.png'
+        background_down:'pic/help.png'
+        background_color:1.0,0.0,0.0
+        border: (2, 2, 2, 2)
+        pos_hint:{"x":0.0,"y":0.92}
+        size_hint: 0.05,0.07
+        on_release:
+            root.manager.transition.direction = "right"
+            root.helpBtnBook()                                   

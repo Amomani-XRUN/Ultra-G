@@ -1,0 +1,28 @@
+<Principal>:
+    id: HomeScreen
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text:'Start'
+            font_size:20
+            font_name:'Lato'
+            on_release: root.BtnEscuchar()
+        Label:
+            id: lblMensaje
+            #text: 'Hospital Appointment'
+	Label:
+        pos_hint:{"x":0.0,"y":-0.45} 
+		id: _tnd
+	    text: app.time
+                   
+    Button:
+        background_color: 1, 0, 0  # Tints the button red
+        background_normal: 'pic/Cal.png'  # A clear image gives a bright red. 
+        background_down: 'pic/Cal.png'  # A gray image gives a duller red.
+        border: (2, 2, 2, 2) 
+        id: Set Reminder
+        backgound_color: (0.1,0.5,0.6,1)
+        size_hint: 0.1, 0.12
+        pos_hint:{"x":0.8,"y":0.0}
+        on_release:
+            root.setDateHA()
